@@ -18,8 +18,9 @@ m = 8; % number of hidden neurons
 beta = 0.0002;
 lr = 0.01;
 
-ReLU=@(x) (abs(x)+x)/2;
+ReLU=@(x) max(0,x);
 
+for trial = 1:5
 
 % initialize weights
 w1 = rand(size(X,2),m);
@@ -48,9 +49,15 @@ w2 = w2 - lr*grad_w2;
 
 end
 
+
+fprintf('min = %.6f; final = %.6f;\n',[min(store_cost) cost]);
+
 plot(store_cost,'LineWidth',2)
 hold on
 axis([-100 5000 -0.1 4])
+end
+
+plot([-100 5000],[0.00202531,0.00202531], 'k--','LineWidth',2)
 
 
 function x = gradReLU(x,y) 
