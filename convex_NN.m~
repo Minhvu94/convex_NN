@@ -78,11 +78,11 @@ end
 for i = 1:P
     if norm(w(:,i)) > 1e-3
         W1 = [W1, w(:,i)/sqrt(norm(w(:,i)))];
-        W2 = [W2; -sqrt(norm(w(:,i)))];
+        W2 = [W2; sqrt(norm(w(:,i)))];
     end
 end
 
-% Forward NN    
+    
 ReLU=@(x) max(0,x);
 
 layer1 = X*W1;
@@ -91,6 +91,8 @@ output = layer1_ReLU*W2;
 
 total_cost = 0.5*norm(output - Y)^2 + 0.5*beta*(norm(W1,'fro')^2 + norm(W2)^2)
 
+% the second part of (2) and the second part of (8) are equal 
+0.5*beta*(norm(W1,'fro')^2 + norm(W2)^2)  -  beta*regulizer
 
 
 
