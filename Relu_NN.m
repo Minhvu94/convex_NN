@@ -15,7 +15,7 @@ Y = [1;-1;1;1;-1];
 
 n = size(X,1); 
 m = 8; % number of hidden neurons 
-beta = 0.0002;
+beta = 0.02;
 lr = 0.01;
 
 ReLU=@(x) max(0,x);
@@ -58,7 +58,7 @@ axis([-100 5000 -0.1 4])
 end
 
 % plot optimal solution computed from the convex problem
-plot([-100 5000],[0.00202531,0.00202531], 'k--','LineWidth',2)
+plot([-100 5000],[0.1977,0.1977], 'k--','LineWidth',2)
 
 
 function x = gradReLU(x,y) 
