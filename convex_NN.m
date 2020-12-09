@@ -22,7 +22,7 @@ for i=1:size(U,2)
     indicator = find(X*U(:,i)>=0);
     diag_vec(indicator) = 1;    
     
-    if any(diag_vec)==0
+    if diag_vec==0
         continue
     end
     
@@ -44,7 +44,7 @@ end
 D
 
 
-% Solve the regularized convex problem (8)
+%% Solve the regularized convex problem (8)
 beta = 0.0002;
 
 cvx_begin %quiet

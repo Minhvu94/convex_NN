@@ -57,6 +57,7 @@ hold on
 axis([-100 5000 -0.1 4])
 end
 
+% plot optimal solution computed from the convex problem
 plot([-100 5000],[0.00202531,0.00202531], 'k--','LineWidth',2)
 
 
